@@ -49,6 +49,9 @@ const url = require('url');
 
 /////////////////////////////
 // SERVER
+// this is a asynchronous way
+const data = fs.readFileSync(`${__dirname}/dev-data/data.json`,'utf-8');
+const dataObj = JSON.parse(data);
 
 const server = http.createServer((req,res)=>{    
     const pathName = req.url;
@@ -56,6 +59,16 @@ const server = http.createServer((req,res)=>{
         res.end('this is overview page');        
     }else if(pathName  === '/product'){
         res.end('this is a product page ');        
+    }else if(pathName === '/api'){
+        // this is a asynchronouse way
+        // fs.readFile(`${__dirname}/dev-data/data.json`,'utf-8',(err,data)=>{
+        //     const productData = JSON.parse(data)
+        //     res.writeHead(200,{'content-type':'application/json'})
+        //     res.end(data);
+        // })
+
+        res.writeHead(200,{'content-type':'application/json'})
+        res.end(data);
     }else{
         res.writeHead(404,{
             'content-type':'text/html',
