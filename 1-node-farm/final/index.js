@@ -71,6 +71,8 @@ const dataObj = JSON.parse(data);
 
 const server = http.createServer((req,res)=>{    
   const { query, pathname } = url.parse(req.url, true);
+  console.log(url.parse(req.url,true));
+  
     if(pathname === '/' || pathname === '/overview'){
         res.writeHead(200,{'content-type':'text/html'})
         // res.end('this is overview page');     
