@@ -1,0 +1,2 @@
+this is written using fs.writFile
+this is  a line was  appended  later!

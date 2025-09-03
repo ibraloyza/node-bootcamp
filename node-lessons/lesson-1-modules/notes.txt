@@ -1,0 +1,2 @@
+Hello from fs/promises 🚀
+this is a line  appended into notes.txt
